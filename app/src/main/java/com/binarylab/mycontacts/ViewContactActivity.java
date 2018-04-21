@@ -3,7 +3,6 @@ package com.binarylab.mycontacts;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -15,11 +14,9 @@ import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,9 +24,7 @@ import android.widget.Toast;
 import com.binarylab.mycontacts.model.Contact;
 import com.binarylab.mycontacts.model.DBHelper;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 
 public class ViewContactActivity extends AppCompatActivity {
@@ -149,16 +144,12 @@ public class ViewContactActivity extends AppCompatActivity {
             ((ConstraintLayout) email.getParent()).setVisibility(View.VISIBLE);
         }else
             ((ConstraintLayout) email.getParent()).setVisibility(View.GONE);
+
         if (contact.getAddress() != null && !contact.getAddress().equals("")) {
             address.setText(contact.getAddress());
             ((ConstraintLayout) address.getParent()).setVisibility(View.VISIBLE);
         }else
             ((ConstraintLayout) address.getParent()).setVisibility(View.GONE);
-        if (contact.getNotes() != null && !contact.getNotes().equals("")) {
-            note.setText(contact.getNotes());
-            ((ConstraintLayout) note.getParent()).setVisibility(View.VISIBLE);
-        }else
-            ((ConstraintLayout) note.getParent()).setVisibility(View.GONE);
 
         if (contact.isFavorite())
             favorites.setBackgroundResource(R.drawable.ic_star_24dp);
@@ -170,6 +161,12 @@ public class ViewContactActivity extends AppCompatActivity {
             ((ConstraintLayout) date.getParent()).setVisibility(View.VISIBLE);
             date.setText(dateFormat.format(contact.getBirthday()));
         }else
+            ((ConstraintLayout) date.getParent()).setVisibility(View.GONE);
+
+        if (contact.getNotes() != null && !contact.getNotes().equals("")) {
+            ((ConstraintLayout) note.getParent()).setVisibility(View.VISIBLE);
+            note.setText(contact.getNotes());
+        } else
             ((ConstraintLayout) note.getParent()).setVisibility(View.GONE);
     }
 
