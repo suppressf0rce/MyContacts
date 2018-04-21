@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.Toolbar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/newContactToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.Popup"/>
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".AddContactActivity">
+
+        <ImageView
+            android:id="@+id/imageViewPerson"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:src="@drawable/ic_person_24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/viewFavoritesImage"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_star_border_24dp"
+            app:layout_constraintStart_toEndOf="@+id/imageViewPerson"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/sendMessage"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="8dp"
+            android:visibility="gone"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_message_24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/call"
+            android:layout_width="48dp"
+            android:visibility="gone"
+            android:layout_height="48dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_phone_24dp"
+            app:layout_constraintEnd_toStartOf="@+id/sendMessage"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:tint="@color/colorTextColor"
+                    android:src="@drawable/ic_person_24dp"
+                    app:layout_constraintBottom_toTopOf="@+id/tvSurname" />
+
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:hint="@string/name"
+                    android:textColorHint="@color/colorTextColor"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/imageView"
+                    app:layout_constraintStart_toEndOf="@+id/imageView"
+                    android:textColor="@color/colorTextColor"/>
+
+                <TextView
+                    android:id="@+id/tvSurname"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:textColorHint="@color/colorTextColor"
+                    android:textSize="24sp"
+                    android:hint="@string/surname"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView"
+                    app:layout_constraintTop_toBottomOf="@+id/tvName"
+                    android:textColor="@color/colorTextColor"/>
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginTop="8dp">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+
+                    android:src="@drawable/ic_phone_24dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvPhone" />
+
+                <TextView
+                    android:id="@+id/tvPhone"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textColorHint="@color/colorTextColor"
+                    android:textSize="24sp"
+                    android:hint="@string/phoneNumber"
+                    android:textColor="@color/colorTextColor"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView2" />
+
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginTop="8dp">
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_email_24dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvEmail" />
+
+                <TextView
+                    android:id="@+id/tvEmail"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:inputType="textEmailAddress"
+                    android:hint="@string/email"
+                    android:textColorHint="@color/colorTextColor"
+                    android:textSize="24sp"
+                    android:textColor="@color/colorTextColor"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView3" />
+
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_location_24dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvAddress" />
+
+                <TextView
+                    android:id="@+id/tvAddress"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:inputType="textPostalAddress"
+                    android:hint="@string/address"
+                    android:textColorHint="@color/colorTextColor"
+                    android:textSize="24sp"
+                    android:textColor="@color/colorTextColor"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView4" />
+
+
+            </android.support.constraint.ConstraintLayout>
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginTop="8dp">
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_cake_24dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvBirthday" />
+
+                <TextView
+                    android:id="@+id/tvBirthday"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:hint="@string/birthday"
+                    android:textColorHint="@color/colorTextColor"
+                    android:textSize="24sp"
+                    android:inputType="date"
+                    android:textColor="@color/colorTextColor"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView5"
+                    android:calendarTextColor="@color/colorTextColor"/>
+
+
+            </android.support.constraint.ConstraintLayout>
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginTop="8dp">
+
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_note_24dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvNotes" />
+
+                <TextView
+                    android:id="@+id/tvNotes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:inputType="textMultiLine"
+                    android:textColorHint="@color/colorTextColor"
+                    android:textSize="24sp"
+                    android:hint="@string/note"
+                    android:textColor="@color/colorTextColor"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView1" />
+
+
+            </android.support.constraint.ConstraintLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>
